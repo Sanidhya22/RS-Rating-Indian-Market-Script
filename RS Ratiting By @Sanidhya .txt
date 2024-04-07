@@ -1,3 +1,6 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Saniddhyanigam
+
 //Relative Price Strength (RS) Rating or Relative Strenght.
 //This is a measure of a stock's price performance over the last
 //twelve months, compared to all stocks in selected Index.
@@ -5,12 +8,10 @@
 //Let's create an equivalent here for TradingView!
 //
 
-// Adaptation for other markets
+// Adaptation for other Indics.
 
-// //@version=1
-// indicator(title="RS Rating for Indian Market", shorttitle="RS Rating", overlay=true, max_bars_back = 253)
-
-
+//@version=5
+indicator(title="RS Rating for Indian Market", shorttitle="RS Rating", overlay=true, max_bars_back = 253)
 
 index = input.string(title='Index to compare To', defval='NSE:CNX500', options=['NSE:NIFTY', 'NSE:CNX500', 'NSE:NIFTYSMLCAP250', 'NSE:CNXSMALLCAP'],group='Index for Relative Strength')
 compareToOtherIndex = input.bool (title="Compare to different index?", defval=false,group='Index for Relative Strength',inline='Different compare')
@@ -209,10 +210,10 @@ perStockAbove20  = request.security("MMTW", 'D', close) > limitUp ? limitUp:requ
 // The goal is to gather as much data as possible as we can't compare the score relatively to every other ticker. We do an approximation based on SMA and % of stock above them at X moment.
 closeDa = request.security(syminfo.tickerid, 'D', close)
 // SMA Declaration based on SMA Daily on the ticker we're watching
-// sma200 = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,200))
+sma200 = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,200))
 sma150 = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,150))
 sma100 = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,100))
-// sma50  = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,50))
+sma50  = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,50))
 sma20  = request.security(syminfo.tickerid, 'D', ta.sma(closeDa,20))
 // Daily Close SPX500
 spxCloseDa = request.security(comparativeTickerId, 'D', close)
