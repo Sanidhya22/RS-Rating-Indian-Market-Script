@@ -1,6 +1,6 @@
 # RS Rating for Trading View
 
-First what to give credit to [Fred6725](https://github.com/Fred6725) for creating the below RS Rating Script .I have done some modification and modified it for indian market.
+Credit to [Fred6725](https://github.com/Fred6725) for creating RS Rating Script .I have done some modification and modified it for indian market.
 
 This Trading View script calculates the Relative Price Strength (RS) Rating for a given stock. It's a measure of a stock's price performance over the last twelve months, compared to all stocks in a selected Index. The rating scale ranges from 1 (lowest) to 99 (highest).
 
